@@ -7,8 +7,6 @@ class Database_conn  extends MY_Model {
 	public function check_login($condition)
 	{
         $user=$this->db->get_where('users',$condition);
-         // echo "<pre>";
-         // print_r($user->result());exit();
          return $user->row();       
 	}
 

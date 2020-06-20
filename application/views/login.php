@@ -25,36 +25,36 @@
         <script src="js/validations.js" type="text/javascript"></script>
         <script src="js/custom.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <title>CRMS</title>
+        <title>Admin Panel Login</title>
         <style>
         /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-        .row.content {height: 1500px}
-        
-        /* Set gray background color and 100% height */
-        .sidenav {
-        background-color: #f1f1f1;
-        height: 100%;
-        }
-        
-        /* Set black background color, white text and some padding */
-        footer {
-        background-color: #555;
-        color: white;
-        padding: 15px;
-        }
-        
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        @media screen and (max-width: 767px) {
-        .sidenav {
-        height: auto;
-        padding: 15px;
-        }
-        .row.content {height: auto;}
-        }
-        div#login-page-uid {
-            min-height: 81vh;
-        }
-        .container1 {
+.row.content {height: 1500px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+background-color: #f1f1f1;
+height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+background-color: #555;
+color: white;
+padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+.sidenav {
+height: auto;
+padding: 15px;
+}
+.row.content {height: auto;}
+}
+div#login-page-uid {
+    min-height: 81vh;
+}
+.container1 {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -138,22 +138,17 @@
                             
                         </div>
                         <div style="padding-top:30px" class="panel-body" >
-                            <?php
-                            if(isset($msg))
-                            {
-                            $display = "block" ;
-                            }
-                            else
-                            {
-                            $display = "none" ;
-                            }
-                            ?>
+                    <?php if(isset($msg)){
+                                $display = "block" ;
+                            } else{
+                                $display = "none" ;
+                            } ?>
                             <div style="display:<?php echo $display?>" id="login-alert" class="alert alert-danger col-sm-12 text-center"><?php echo $msg?></div>
                           
 
                                 <?php 
                                      $form=array('id'=>'loginform','class'=>'form-horizontal','role'=>'form');
-                                   echo form_open('da_projects/login', $form);?>
+                                   echo form_open('admin/login', $form);?>
                                    
                                   <div class="col-md-12">
 
@@ -184,20 +179,7 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
-            
-                <div class="footer-div-social-bar">
-                    <div class="row">
-                    <div class="copyright col-md-6 text-center"><span><p>Developed By <a href="http://ipageindia.in/" target="_blank">IPage Technologies</a></p> </span> </div>
-                    <div class="copyright col-md-6 text-center"><span><p>&copy; Copyright <a href="http://ipageindia.in/" target="_blank">DA IPage</a></p> </span> </div>
-                    </div>
-
-                    
-                </div>
         </div>
-
-
-
-</body>
+    </body>
 </html>
