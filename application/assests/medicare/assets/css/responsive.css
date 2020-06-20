@@ -1,0 +1,122 @@
+@media only screen and (max-width: 1199px){
+
+}
+@media only screen and (max-width: 1024px){
+
+}
+@media only screen and (max-width: 991px){
+/* welcome section */
+.welcome_extra_block {
+	display: block;
+}
+.welcome_extra_block > .welcome_extra_right, .welcome_extra_block > .welcome_extra_left_img {
+	width: 100%;
+}
+.welcome_extra_right {
+	margin-top: 60px;
+	display: block;
+}
+}
+@media only screen and (max-width: 767px){
+/* top header section */
+.header_logo {
+	background-color: #353530;
+}
+.top_header_search {
+	display: none;
+}
+.top_socail_inner > .Search_toggle {
+	display: inline-flex;
+	cursor: pointer;
+}
+.logo_section > a {
+	display: none;
+}
+.logo_section > .toogle_menu{
+	display: block;
+	cursor: pointer;
+}
+
+/* navigation bar */
+.top_mob_header_search_active {
+	display: block;
+}
+.top_mob_header_search {
+	background-color: #7e7e7e;
+	padding: 10px;
+	display: none;
+}
+.toogle_menu > .fa-angle-down {
+	color: #fff;
+}
+.left_nav {
+	display: none;
+}
+.right_nav .menu_secion > li {
+	display: block;
+	margin: 10px 0;
+	width: 100%;
+}
+.navbars_active {
+	display: block !important;
+}
+.navbars {
+	display: none;
+}
+.right_nav .menu_secion > li > a{
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	font-size: 12px;
+}
+.right_nav .menu_secion > li.menu_active > a, .right_nav .menu_secion > li > a:hover {
+	border-left: 3px solid #42b3e5;
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	color: #42b3e5;
+}
+}
+@media only screen and (max-width: 560px){
+.smart_slider .slick-prev, .smart_slider .slick-next {
+	height: 40px;
+	width: 40px;
+	background-color: #42b3e5;
+	color: #fff;
+	border-radius: 5px;
+	border: 0px solid #d44541;
+}
+.smart_slider .slick-next {
+	right: 15px;
+}
+.smart_slider .slick-prev {
+	left: 15px;
+}
+.category_head > h4{
+	font-size: 24px;
+}
+.category_sub_head > h4 {
+	font-size: 16px;
+}
+.category_head > p{
+	font-size: 12px;
+}
+
+}
+@media only screen and (max-width: 480px){
+
+}
+@media only screen and (max-width: 420px){
+/* welcome section */
+.welcome_extra_left_img .welcome_video_block > span {
+	width: 70%;
+}
+}
+@media only screen and (max-width: 360px){
+.toogle_menu > img, .logo_section > a > img {
+	max-width: 130px;
+	width: 100%;
+	min-width: 130px;
+}
+}
+@media only screen and (max-width: 320px){}
