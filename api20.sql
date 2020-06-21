@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2020 at 03:44 PM
+-- Generation Time: Jun 21, 2020 at 02:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -432,6 +432,31 @@ INSERT INTO `discussion` (`id`, `sender_id`, `receiver_id`, `cat`, `subcat`, `po
 (117, 3, 2, 'tourpost', 'comment', 58, 'hello', '2018-04-25 18:32:25', '0000-00-00 00:00:00', ''),
 (118, 3, 2, 'tourpost', 'comment', 58, 'how was trip', '2018-04-25 18:32:32', '0000-00-00 00:00:00', ''),
 (119, 3, 2, 'tourpost', 'comment', 58, 'pls tell me', '2018-04-25 18:33:08', '0000-00-00 00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `disease`
+--
+
+CREATE TABLE `disease` (
+  `id` int(11) NOT NULL,
+  `category` tinyint(4) NOT NULL,
+  `disease_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `disease`
+--
+
+INSERT INTO `disease` (`id`, `category`, `disease_name`, `created_by`, `created_on`) VALUES
+(2, 0, 'ajgdasfasdf', 6, '2020-06-21 09:01:30'),
+(3, 0, '', 6, '2020-06-21 09:01:36'),
+(4, 24, 'testing', 6, '2020-06-21 09:02:24'),
+(6, 23, 'testing', 6, '2020-06-21 09:09:08'),
+(7, 26, 'bird flu', 4, '2020-06-21 11:55:01');
 
 -- --------------------------------------------------------
 
@@ -942,30 +967,40 @@ CREATE TABLE `sidemenu` (
 --
 
 INSERT INTO `sidemenu` (`id`, `menu_name`, `page_query_string`, `display_order`, `parent_id`, `jquery_event`, `date_created`, `is_active`) VALUES
-(1, 'Dashboard', '#', 1, 0, 'error-menu', '2018-05-26 05:58:50', 1),
-(2, 'Dashboard', 'da_projects/dashboard', 2, 1, 'error-menu', '2018-06-18 12:34:43', 1),
-(20, 'WBS Section ', '#', 20, 0, 'error-menu1', '2018-06-18 12:34:49', 1),
-(21, 'Add WBS Sub Category', 'da_projects/wbs_sub_category', 21, 20, '', '2018-06-18 12:34:56', 1),
-(22, 'Add WBS ', 'da_projects/add_wbs', 22, 20, '', '2018-06-18 12:35:03', 1),
-(23, 'Manage Category', 'da_projects/select_category', 23, 20, '', '2018-07-03 12:11:00', 1),
-(25, 'Project Section', '#', 25, 0, 'legal-menu', '2018-06-18 12:35:06', 1),
-(26, 'Create Project', 'da_projects/create_project', 26, 25, '', '2018-06-18 12:35:14', 1),
-(27, 'Project Charter', 'da_projects/project_charter', 27, 25, '', '2018-06-18 12:35:20', 1),
-(30, 'Tracking & Follow up Sheet', '#', 30, 0, 'legal-menu1', '2018-06-18 12:37:57', 1),
-(31, 'Tracking & Follow up Sheet', 'da_projects/tracking_sheet', 31, 30, '', '2018-06-18 12:35:28', 1),
-(35, 'Entry Section', '#', 35, 0, 'legal-menu2', '2018-06-18 12:40:09', 1),
-(36, 'PO Entry', 'da_projects/po_entry', 36, 35, '', '2018-06-18 12:35:42', 1),
-(37, 'Work Order Entry', 'da_projects/work_order', 37, 35, '', '2018-06-18 12:35:48', 1),
-(38, 'COP Entry', 'da_projects/cop_entry', 38, 35, '', '2018-06-18 12:35:55', 1),
-(40, 'Budget/Cost Section', '#', 40, 0, 'legal-menu3', '2018-06-18 12:38:23', 1),
-(41, 'Budget/Cost', 'da_projects/budget', 41, 40, '', '2018-06-18 12:36:08', 1),
-(45, 'Directory Structure', '#', 45, 0, 'legal-menu4', '2018-06-18 12:38:27', 1),
-(46, 'Directory', 'da_projects/create_folder/root', 46, 45, '', '2018-06-21 10:45:39', 1),
-(50, 'List of project', '#', 50, 0, 'legal-menu5', '2018-06-18 12:38:31', 1),
-(51, 'Projects', 'da_projects/project_list', 51, 50, '', '2018-06-18 12:36:28', 1),
-(55, 'Account', '#', 55, 0, 'legal-menu6', '2018-06-18 12:38:35', 1),
-(56, 'Change Password', 'da_projects/change_password', 56, 55, '', '2018-06-18 12:36:38', 1),
-(57, 'Logout', 'da_projects/logout', 57, 55, '', '2018-06-18 12:36:43', 1);
+(1, 'Dashboard', '#', 1, 0, 'error-menu', '2020-06-21 07:11:22', 1),
+(2, 'Dashboard', 'admin/dashboard', 1, 1, 'error-menu', '2020-06-21 07:24:01', 1),
+(20, 'WBS Section ', '#', 20, 0, 'error-menu1', '2020-06-21 07:11:10', 0),
+(21, 'Add WBS Sub Category', 'da_projects/wbs_sub_category', 21, 20, '', '2020-06-21 07:11:10', 0),
+(22, 'Add WBS ', 'da_projects/add_wbs', 22, 20, '', '2020-06-21 07:11:10', 0),
+(23, 'Manage Category', 'da_projects/select_category', 23, 20, '', '2020-06-21 07:11:10', 0),
+(25, 'Project Section', '#', 25, 0, 'legal-menu', '2020-06-21 07:11:10', 0),
+(26, 'Create Project', 'da_projects/create_project', 26, 25, '', '2020-06-21 07:11:10', 0),
+(27, 'Project Charter', 'da_projects/project_charter', 27, 25, '', '2020-06-21 07:11:10', 0),
+(30, 'Tracking & Follow up Sheet', '#', 30, 0, 'legal-menu1', '2020-06-21 07:11:10', 0),
+(31, 'Tracking & Follow up Sheet', 'da_projects/tracking_sheet', 31, 30, '', '2020-06-21 07:11:10', 0),
+(35, 'Entry Section', '#', 35, 0, 'legal-menu2', '2020-06-21 07:11:10', 0),
+(36, 'PO Entry', 'da_projects/po_entry', 36, 35, '', '2020-06-21 07:11:10', 0),
+(37, 'Work Order Entry', 'da_projects/work_order', 37, 35, '', '2020-06-21 07:11:10', 0),
+(38, 'COP Entry', 'da_projects/cop_entry', 38, 35, '', '2020-06-21 07:11:10', 0),
+(40, 'Budget/Cost Section', '#', 40, 0, 'legal-menu3', '2020-06-21 07:11:10', 0),
+(41, 'Budget/Cost', 'da_projects/budget', 41, 40, '', '2020-06-21 07:11:10', 0),
+(45, 'Directory Structure', '#', 45, 0, 'legal-menu4', '2020-06-21 07:11:10', 0),
+(46, 'Directory', 'da_projects/create_folder/root', 46, 45, '', '2020-06-21 07:11:10', 0),
+(50, 'List of project', '#', 50, 0, 'legal-menu5', '2020-06-21 07:11:10', 0),
+(51, 'Projects', 'da_projects/project_list', 51, 50, '', '2020-06-21 07:11:10', 0),
+(55, 'Account', '#', 55, 0, 'legal-menu6', '2020-06-21 07:11:10', 0),
+(56, 'Change Password', 'da_projects/change_password', 56, 55, '', '2020-06-21 07:11:10', 0),
+(57, 'Logout', 'da_projects/logout', 57, 55, '', '2020-06-21 07:11:10', 0),
+(58, 'Category', '#', 2, 0, 'category', '2020-06-21 07:23:33', 1),
+(59, 'Manage Category', 'admin/addCategory', 2, 58, 'category', '2020-06-21 07:24:04', 1),
+(60, 'Users', '#', 6, 0, 'users', '2020-06-21 11:36:22', 0),
+(61, 'User Listing', 'admin/userListing', 6, 60, 'users', '2020-06-21 11:36:50', 0),
+(62, 'Disease', '#', 3, 0, 'disease', '2020-06-21 07:24:07', 1),
+(63, 'Manage Disease', 'admin/manageDisease', 3, 62, 'disease', '2020-06-21 07:24:10', 1),
+(64, 'Google Adsence', '#', 4, 0, 'google', '2020-06-21 07:32:05', 1),
+(65, 'Manage Google Adsence', 'admin/googleAdsence', 4, 64, 'google', '2020-06-21 07:34:41', 1),
+(66, 'Amazon Links', '#', 5, 0, 'Amazon', '2020-06-21 07:32:05', 1),
+(67, 'Manage Amazon Links', 'admin/amazonLinks', 5, 66, 'Amazon', '2020-06-21 07:34:41', 1);
 
 -- --------------------------------------------------------
 
@@ -2298,9 +2333,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `email_id`, `created_by`, `created_on`) VALUES
-(4, 'vipin', 'Vndib2t1M09HL2l6U1hhRzB1aTJUdz09', 'Vipin Mishra', 'test@test.com', 1, '2017-11-14 02:14:20'),
-(6, 'admin', 'Vndib2t1M09HL2l6U1hhRzB1aTJUdz09', 'Admin', 'admin@imaginationlight.in', 0, '2017-07-26 21:12:05'),
-(7, 'test', 'Vndib2t1M09HL2l6U1hhRzB1aTJUdz09', 'test', 'test@test.com', 1, '2017-11-14 02:15:14');
+(4, 'virender', 'Vndib2t1M09HL2l6U1hhRzB1aTJUdz09', 'Virender kumar', 'test@test.com', 1, '2017-11-14 02:14:20'),
+(6, 'admin', 'Vndib2t1M09HL2l6U1hhRzB1aTJUdz09', 'Admin', 'admin@imaginationlight.in', 1, '2017-07-26 21:12:05'),
+(7, 'mahesh', 'Vndib2t1M09HL2l6U1hhRzB1aTJUdz09', 'Mahesh kumar', 'test@test.com', 1, '2017-11-14 02:15:14');
 
 -- --------------------------------------------------------
 
@@ -5714,9 +5749,10 @@ INSERT INTO `wbs_category` (`id`, `category_name`, `created_by`, `created_on`) V
 (6, 'Construction', 5, '2017-12-19 03:06:12'),
 (7, 'Test', 5, '2018-01-05 01:16:12'),
 (8, 'test1', 5, '2018-01-15 01:37:57'),
-(9, '28test', 6, '2018-05-28 01:22:03'),
-(10, 'ac', 6, '2018-05-28 02:14:07'),
-(11, 'cat', 6, '2018-06-04 05:46:42');
+(23, 'testing', 6, '2020-06-21 07:38:10'),
+(24, 'disease', 6, '2020-06-21 07:38:17'),
+(25, 'new', 6, '2020-06-21 07:38:19'),
+(26, 'flu', 4, '2020-06-21 11:54:32');
 
 -- --------------------------------------------------------
 
@@ -6067,6 +6103,12 @@ ALTER TABLE `discussion`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `disease`
+--
+ALTER TABLE `disease`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `document_category`
 --
 ALTER TABLE `document_category`
@@ -6336,6 +6378,12 @@ ALTER TABLE `directory_files_comment`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
+-- AUTO_INCREMENT for table `disease`
+--
+ALTER TABLE `disease`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `document_category`
 --
 ALTER TABLE `document_category`
@@ -6411,7 +6459,7 @@ ALTER TABLE `project_charter`
 -- AUTO_INCREMENT for table `sidemenu`
 --
 ALTER TABLE `sidemenu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -6477,7 +6525,7 @@ ALTER TABLE `vendor_category`
 -- AUTO_INCREMENT for table `wbs_category`
 --
 ALTER TABLE `wbs_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `wbs_master`
