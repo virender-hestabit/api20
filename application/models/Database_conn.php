@@ -75,8 +75,6 @@ class Database_conn  extends MY_Model {
         public function getData($table_name , $condition =array())
        {
          
-         $project_id = $this->session->project_id;
-        $this->db->where('project_id', $project_id);
         if(isset($condition)&&sizeof($condition)>0)
         {
           $this->db->where($condition);
@@ -177,13 +175,26 @@ class Database_conn  extends MY_Model {
 ######################################################################################################################################
     //function for fetching data from wbs category and sub category
 
-        public function fetch_category($table_name,$coloumn_name)
+        public function fetch_category1($table_name,$coloumn_name)
         {
           $this->db->order_by($coloumn_name, "asc"); 
           $query = $this->db->get($table_name);
           return $query->result_array();
         }
 
+        public function category($coloumn_name='category_name')
+        {
+          $this->db->select('wbs_category.* , users.username, users.id as user_id')->join('users','users.id=wbs_category.created_by')->order_by($coloumn_name, "asc"); 
+          $query = $this->db->get('wbs_category');
+          return $query->result_array();
+        }
+
+        public function disease($coloumn_name='disease_name')
+        {
+          $this->db->select('disease.* ,wbs_category.category_name, users.username, users.id as user_id')->join('wbs_category','disease.category=wbs_category.id')->join('users','users.id=disease.created_by')->order_by($coloumn_name, "asc"); 
+          $query = $this->db->get('disease');
+          return $query->result_array();
+        }
 
 //function for fetching data from wbs category and sub category
 

@@ -4,7 +4,7 @@
         
         <div class="header">
             
-            <h1 class="page-title">Add Category</h1>
+            <h1 class="page-title">Manage Disease Category</h1>
         </div>
         
         <div class="container-fluid">
@@ -14,21 +14,24 @@
 	</div>
 <div class="row-fluid">&nbsp;</div>
 <div class="well">
-  <?php if(isset($msg)){ ?>
+  <?php if(isset($msg) && !empty($msg)){ ?>
   <h4 class="alert alert-info" style="text-align: center"><?php echo $msg;?></h4>
   <?php } ?>
+
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home" align="center" >
-                      <?php $form=array('class'=>'form-element','role'=>'form');
-                      echo form_open('admin/addCategory', $form);?>
-
-                  
+                  <?php if(isset($edit_category) && $edit_category[0]['id']!=''){
+                          $form=array('class'=>'form-element','role'=>'form');echo form_open('admin/editCategory', $form);
+                        }else{
+                          $form=array('class'=>'form-element','role'=>'form');echo form_open('admin/addCategory', $form);
+                        } ?>
                   <div class="form-group" >       
-                  <label for="exampleInputEmail1" style="padding-right: 116px;">Enter Category</label>
-                  <input type="text" class="form-control" name="category" placeholder="Enter Category" style="margin: 0px;">
-                  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                  <input type="hidden" name="category_id" value="<?php echo (isset($edit_category) && $edit_category[0]['id']!='')?$edit_category[0]['id']:''; ?>">
+                  <input type="text" class="form-control" name="category" placeholder="Enter Disease Category" value="<?php echo (isset($edit_category) && $edit_category[0]['id']!='')?$edit_category[0]['category_name']:''; ?>" >
                   </div>
-
+                  <div class="form-group" align="center" >
+                  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 
@@ -42,16 +45,16 @@
 </div>
 
 
-<p class="block-heading">Cagegory List</p>
+<p class="block-heading">Disease Cagegory List</p>
   <div class="well">
     <table class="table">
       <thead>
       <tr>
-                  <th width="20%" style="text-align: center;" >S NO.</th>
-                  <th width="20%"  style="text-align: center;">Category Name</th>
-                  <th width="20%"  style="text-align: center;">Created By</th>
-                  <th width="20%"  style="text-align: center;">Created on</th>
-                  <th width="20%"  style="text-align: center;">Action</th>
+                  <th width="20%">S NO.</th>
+                  <th width="20%">Disease Category Name</th>
+                  <th width="20%">Created By</th>
+                  <th width="20%">Created on</th>
+                  <th width="20%" style="text-align: center;">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -61,11 +64,12 @@
                     $i=0;
                     foreach($dataArr as $data){ ?>
                       <tr>
-                      <td width="20%" style="text-align: center;"><?php echo ++$i;?></td>
-                      <td width="20%" style="text-align: center;"><?php echo $data['category_name'];?></td>
-                      <td width="20%" style="text-align: center;"><?php echo $data['created_by'];?></td>
-                      <td width="20%" style="text-align: center;"><?php echo $data['created_on'];?></td>
-                      <td width="20%" style="text-align: center;"><a href="#" title="Edit" ><i class="fa fa-edit" style="font-size:14px; margin-left:20px;"></i></a>
+                      <td width="20%"><?php echo ++$i;?></td>
+                      <td width="20%"><?php echo $data['category_name'];?></td>
+                      <td width="20%"><?php echo $data['username'];?></td>
+                      <td width="20%"><?php echo $data['created_on'];?></td>
+                      <td width="20%" style="text-align: center;"><a href="<?php echo base_url('admin/editCategory/'.$data['id']); ?>" title="Edit" ><i class="fa fa-edit" style="font-size:14px; margin-left:20px;"></i></a>
+                        <a href="<?php echo base_url('admin/deleteCategory/'.$data['id']); ?>" title="Delete" onclick="return confirm('Are you want to delete!');"><i class="fa fa-trash" style="font-size:14px; margin-left:20px;"></i></a>
                       </td>
                       </tr>
                     <?php } } else{

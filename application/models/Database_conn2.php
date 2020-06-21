@@ -123,14 +123,14 @@ public function get_menu_tree($table,$userID='',$additionalQstring='',$parent_id
 			$this->db->where('is_active','1');
 			$this->db->where('parent_id',$parent_id);
 			$this->db->where_in('id', $midArr);
-			$query  = $this->db->get($table);
+			$query  = $this->db->order_by('display_order')->get($table);
 			$query1 = $query->result_array();
 		}
 		else
 		{
 		    $this->db->where('is_active','1');
 			$this->db->where('parent_id',$parent_id);
-			$query  = $this->db->get($table);
+			$query  = $this->db->order_by('display_order')->get($table);
 			$query1 = $query->result_array();
 		}
 
@@ -138,7 +138,7 @@ public function get_menu_tree($table,$userID='',$additionalQstring='',$parent_id
 		foreach($query1 as $row) 
 		{
 			// If qstring is hash then href
-			$href = '<a href="'.base_url($row['page_query_string']).$additionalQstring.'" target="_blank">'.$row['menu_name'].'</a>';
+			$href = '<a href="'.base_url($row['page_query_string']).$additionalQstring.'" >'.$row['menu_name'].'</a>';
 			$label_or_link = ($row['page_query_string'] != '#')?$href:$row['menu_name'];
 			// If qstring is hash then class
 		if($row['page_query_string'] == '#')
