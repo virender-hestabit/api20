@@ -11,7 +11,7 @@
         </div>
         
                 <ul class="breadcrumb">
-            <li><a href="<?php echo base_url('da_project/dashboard');?>">Home</a> <span class="divider">/</span></li>
+            <li><a href="<?php echo base_url('admin/dashboard');?>">Home</a> <span class="divider">/</span></li>
             <li class="active">Dashboard</li>
         </ul>
 
@@ -22,7 +22,7 @@
 <div class="row-fluid">
 
    
-    <div class="block">
+<!--     <div class="block">
         <a href="#page-stats" class="block-heading" data-toggle="collapse">Latest Stats</a>
         <div id="page-stats" class="block-body collapse in">
 
@@ -58,8 +58,8 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <div class="row-fluid">
     <div class="block span6">
         <a href="#tablewidget" class="block-heading" data-toggle="collapse">Users<span class="label label-warning">+10</span></a>
@@ -121,7 +121,7 @@
 </div>
 
 
-
+ -->
       
             </div>
         </div>

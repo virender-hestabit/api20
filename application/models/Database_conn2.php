@@ -116,13 +116,13 @@ public function get_menu_tree($table,$userID='',$additionalQstring='',$parent_id
 		if($userID != '' && intval($userID) != 0)
 		{
 
-			$menu_ids = ($userID != '') ? $this->getMenuIDsAssignedToUser($userID) : '';
+			// $menu_ids = ($userID != '') ? $this->getMenuIDsAssignedToUser($userID) : '';
 			//$menu_ids = "(".$menu_ids.")";
             //print_r($menu_ids);
-            $midArr = explode(',', $menu_ids);
+            // $midArr = explode(',', $menu_ids);
 			$this->db->where('is_active','1');
 			$this->db->where('parent_id',$parent_id);
-			$this->db->where_in('id', $midArr);
+			// $this->db->where_in('id', $midArr);
 			$query  = $this->db->order_by('display_order')->get($table);
 			$query1 = $query->result_array();
 		}
@@ -138,7 +138,7 @@ public function get_menu_tree($table,$userID='',$additionalQstring='',$parent_id
 		foreach($query1 as $row) 
 		{
 			// If qstring is hash then href
-			$href = '<a href="'.base_url($row['page_query_string']).$additionalQstring.'" >'.$row['menu_name'].'</a>';
+			$href = '<a href="'.base_url($row['page_query_string']).$additionalQstring.'" style="padding-left:30px;" >'.$row['menu_name'].'</a>';
 			$label_or_link = ($row['page_query_string'] != '#')?$href:$row['menu_name'];
 			// If qstring is hash then class
 		if($row['page_query_string'] == '#')
@@ -146,7 +146,7 @@ public function get_menu_tree($table,$userID='',$additionalQstring='',$parent_id
 			$class_ul = 'hide_menu';
 			$class_li = 'expand_collapse';
 			$plus_minus = '+';
-			$menu_name .='<a href="#'.$row['jquery_event'].'"  class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>'.$row['menu_name'].'<i class="icon-chevron-up"></i></a>
+			$menu_name .='<a href="#'.$row['jquery_event'].'"  class="nav-header collapsed" data-toggle="collapse" style="padding-left:30px;">'.$row['menu_name'].'<i class="icon-chevron-up"></i></a>
                <ul id="'.$row['jquery_event'].'" class="nav nav-list collapse">';
               $ul="</ul>";
 		}
