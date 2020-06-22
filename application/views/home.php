@@ -42,7 +42,7 @@
 							</div>
 							<div class="category_box_dis">
 								<h4><?php echo $single_disease['disease_name'];?></h4>
-								<p><?php echo substr($single_disease['disease_article'],0,250).".."; ?></p>
+								<p><?php echo strtolower(Strip_tags(substr($single_disease['disease_article'],0,250))).".."; ?></p>
 							</div>
 							<div class="category_box_action">
 								<a href="<?php echo base_url('disease/detail/'.$single_disease['disease_id']); ?>">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
