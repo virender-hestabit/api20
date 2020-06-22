@@ -30,8 +30,7 @@
               <option value="" >Select Disease Category</option>
               <?php 
                 foreach ($category_detail as $cat_data){
-                  $select = (isset($edit_disease) && $edit_disease[0]['category']==$cat_data['id'])?'selected':'';
-                  echo "<option value='".$cat_data['id']."' $select >".$cat_data['category_name']."</option>";
+                  echo "<option value='".$cat_data['id']."'>".$cat_data['category_name']."</option>";
                 }
               ?>
             </select>

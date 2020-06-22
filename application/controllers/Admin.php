@@ -47,6 +47,7 @@ class Admin extends MY_Controller {
 
   public function addCategory($msg='')
   {
+  
     if(!isset($this->session->user_id))
       return redirect('admin/login');
       $submit = $this->input->post('submit');
@@ -153,9 +154,10 @@ class Admin extends MY_Controller {
         $disease_id = (int)$disease_id;
         $data['edit_disease'] = $this->Database_conn->getData('disease',array('id'=>$disease_id));
       }
+      
       $data['dataArr'] = $this->Database_conn->disease();
       $data['category_detail'] = $this->Database_conn->category();
-      return $this->load->view('disease_detail',$data);
+      return $this->load->view('category',$data);
   }  
   public function deleteDisease($disease_id = 0 , $msg='')
   {

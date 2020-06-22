@@ -196,6 +196,16 @@ class Database_conn  extends MY_Model {
           return $query->result_array();
         }
 
+        public function getDisease()
+        {
+          $this->db->select()
+         ->from('wbs_category')
+         ->join('disease','disease.category=wbs_category.id');
+          // $this->db->select('disease.* ,wbs_category.category_name, users.username, users.id as user_id')->join('wbs_category','disease.category=wbs_category.id'); 
+          return $this->db->get()->result_array();
+
+        }
+
 //function for fetching data from wbs category and sub category
 
         // public function fetch_category($table_name,$coloumn_name,$condition)

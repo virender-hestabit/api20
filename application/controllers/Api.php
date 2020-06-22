@@ -4,12 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Api extends MY_Controller {
 
 	
-	public function index()
-	{
-		$this->login();
-	}
+	// public function index()
+	// {
+	// 	$this->login();
+	// }
+
 ################################################################################################################################################
-//login module1 start    
+//login module start    
 public function login()
 {
 	if(!isset($this->session->username))

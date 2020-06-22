@@ -22,6 +22,7 @@
 				<div class="category_sub_head">
 					<h4>Category</h4>
 				</div>
+
 				<div class="category_head">
 					<h4>Pneumonia</h4>
 					<span class="custom_border"></span>
@@ -37,13 +38,16 @@
 							<div class="category_box_img">
 								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
 							</div>
+							
+						<?php foreach($title as $k => $v ) {?>
 							<div class="category_box_dis">
-								<h4>Pneumonia</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+								<h4><?php echo( $v["title"]);?></h4>
+								<p><?php echo substr($v["extract"], 0 , 200)."..";?></p>
 							</div>
 							<div class="category_box_action">
 								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
 							</div>
+						<?php }?>	
 						</div>
 					</div>
 					<div class="category_box">

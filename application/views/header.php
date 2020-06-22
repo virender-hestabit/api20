@@ -91,15 +91,26 @@
     <div class="navbar">
         <div class="navbar-inner">
                 <ul class="nav pull-right">
+                    
+                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button" style="text-transform: uppercase;"><?php echo (isset($this->session->project_id)&&$this->session->project_id!='')?$this->Common->getDataSingle('projects','project_name',array('id'=>$this->session->project_id)):'';?></a></li>
+
                     <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button" ><?php echo ucfirst(isset($this->session->user_id)&&$this->session->user_id!='')?$this->Common->getDataSingle('users','username',array('id'=>$this->session->user_id)):'';?></a></li>
                     <li id="fat-menu" class="dropdown">
-                        <a href="<?php echo base_url('admin/logout');?>"  >
+                        <a href="<?php echo base_url('da_projects/logout');?>"  >
                             <i class="icon-user"></i>Logout  
                         </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="<?php echo base_url('da_projects/change_password');?>">Change Password</a></li>
+                            <li class="divider"></li>
+                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                            <li class="divider visible-phone"></li>
+                            <li><a tabindex="-1" href="<?php echo base_url('da_projects/logout');?>">Logout</a></li>
+                        </ul>
                     </li>
                     
                 </ul>
-                <a class="brand" href="<?php echo base_url('admin');?>"><span class="first">Admin</span> <span class="second">Panel</span></a>
+                <a class="brand" href="index.php"><span class="first">Admin</span> <span class="second">Panel</span></a>
         </div>
     </div>
     
