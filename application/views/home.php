@@ -15,6 +15,7 @@
 	</div>
 </section>
 
+<?php foreach ($final_data as $data) { ?>
 <section class="category">
 	<div class="container">
 		<div class="row">
@@ -24,7 +25,7 @@
 				</div>
 
 				<div class="category_head">
-					<h4>Pneumonia</h4>
+					<h4><?php echo $data['cat_name'];?></h4>
 					<span class="custom_border"></span>
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
 				</div>
@@ -33,85 +34,28 @@
 					<div class="right_slider_text"><a href="#">View All</a></div>
 				</div>
 				<div class="category_slider">
-					<div class="category_box">
-						<div class="category_box_inner">
-							<div class="category_box_img">
-								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
-							</div>
-							
-						<?php foreach($title as $k => $v ) {?>
-							<div class="category_box_dis">
-								<h4><?php echo( $v["title"]);?></h4>
-								<p><?php echo substr($v["extract"], 0 , 200)."..";?></p>
-							</div>
-							<div class="category_box_action">
-								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
-							</div>
-						<?php }?>	
-						</div>
-					</div>
+					<?php foreach ($data['single_disease'] as $single_disease) { ?>
 					<div class="category_box">
 						<div class="category_box_inner">
 							<div class="category_box_img">
 								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
 							</div>
 							<div class="category_box_dis">
-								<h4>Pneumonia</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+								<h4><?php echo $single_disease['disease_name'];?></h4>
+								<p><?php echo substr($single_disease['disease_article'],0,250).".."; ?></p>
 							</div>
 							<div class="category_box_action">
 								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
 							</div>
 						</div>
 					</div>
-					<div class="category_box">
-						<div class="category_box_inner">
-							<div class="category_box_img">
-								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
-							</div>
-							<div class="category_box_dis">
-								<h4>Pneumonia</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-							</div>
-							<div class="category_box_action">
-								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
-							</div>
-						</div>
-					</div>
-					<div class="category_box">
-						<div class="category_box_inner">
-							<div class="category_box_img">
-								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
-							</div>
-							<div class="category_box_dis">
-								<h4>Pneumonia</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-							</div>
-							<div class="category_box_action">
-								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
-							</div>
-						</div>
-					</div>
-					<div class="category_box">
-						<div class="category_box_inner">
-							<div class="category_box_img">
-								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
-							</div>
-							<div class="category_box_dis">
-								<h4>Pneumonia</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-							</div>
-							<div class="category_box_action">
-								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
-							</div>
-						</div>
-					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
+<?php } ?>
 <section class="category">
 	<div class="container">
 		<div class="row">

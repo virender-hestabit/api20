@@ -62,10 +62,8 @@ class Database_conn  extends MY_Model {
 
        public function fetch_Data($table_name)
        {
-        $project_id = $this->session->project_id;
-        $this->db->where('id', $project_id);
-       	$get_data=$this->db->get($table_name);
-       	return $get_data->result_array();
+          $get_data=$this->db->get($table_name);
+         	return $get_data->result_array();
        }   
 
 
