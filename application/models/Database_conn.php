@@ -194,6 +194,19 @@ class Database_conn  extends MY_Model {
           return $query->result_array();
         }
 
+        public function disease_con($coloumn_name='disease.disease_name' , $condition=array())
+        {
+          $this->db->select('disease.* ,wbs_category.category_name, users.username, users.id as user_id')->join('wbs_category','disease.category=wbs_category.id')->join('users','users.id=disease.created_by');
+          if(count($condition)>0)
+          {
+            $this->db->where($condition);  
+          }
+          $this->db->order_by($coloumn_name, "asc"); 
+          $query = $this->db->get('disease');
+          // echo "<pre>";var_dump($query->result_array());die;
+          return $query->result_array();
+        }
+
         public function getDisease()
         {
           $this->db->select()

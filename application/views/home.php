@@ -45,7 +45,7 @@
 								<p><?php echo substr($single_disease['disease_article'],0,250).".."; ?></p>
 							</div>
 							<div class="category_box_action">
-								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
+								<a href="<?php echo base_url('disease/detail/'.$single_disease['disease_id']); ?>">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
 							</div>
 						</div>
 					</div>

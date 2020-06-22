@@ -30,7 +30,7 @@ class Home extends MY_Controller {
 			array_push($final_array, $single_array);
 		}
 		$data['final_data'] = $final_array;
-		// print_r($final_array);die;
+		// print_r($data);die;
 		$this->load->view('home',$data);
 		
 	}
@@ -41,7 +41,8 @@ class Home extends MY_Controller {
         
         $this->curl = curl_init();
    
-       curl_setopt($this->curl, CURLOPT_URL,"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&titles=".$disease_name);
+       // curl_setopt($this->curl, CURLOPT_URL,"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&titles=".$disease_name);
+       curl_setopt($this->curl, CURLOPT_URL,"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=".$disease_name);
        
         curl_setopt($this->curl, CURLOPT_POST, 0);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
