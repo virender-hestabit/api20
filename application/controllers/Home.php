@@ -9,6 +9,7 @@ class Home extends MY_Controller {
 	}
 	public function index()
 	{
+
 		$getDiseaseCategory = $this->Database_conn->fetch_Data('wbs_category');
 		$final_array  = array();
 		foreach ($getDiseaseCategory as $category){
@@ -31,6 +32,7 @@ class Home extends MY_Controller {
 		$data['final_data'] = $final_array;
 		// print_r($final_array);die;
 		$this->load->view('home',$data);
+		
 	}
 
 	public function get_diseases_data($disease_name) {
@@ -40,7 +42,6 @@ class Home extends MY_Controller {
         $this->curl = curl_init();
    
        curl_setopt($this->curl, CURLOPT_URL,"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&titles=".$disease_name);
-
        
         curl_setopt($this->curl, CURLOPT_POST, 0);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
