@@ -39,10 +39,10 @@
 								<img src="<?php echo base_url('application/assests/medicare/media/icon1.png');?>" alt="Website" />
 							</div>
 							
-						<?php foreach($title as $k => $v ) {?>
+						<?php print_r($title);die;foreach($title as $k => $v ) {?>
 							<div class="category_box_dis">
-								<h4><?php echo( $v["title"]);?></h4>
-								<p><?php echo substr($v["extract"], 0 , 200)."..";?></p>
+								<h4><?php echo( $v[$k]["title"]);?></h4>
+								<p><?php echo substr($v[$k]["extract"], 0 , 200)."..";?></p>
 							</div>
 							<div class="category_box_action">
 								<a href="#">Read more<span class="category_box_action_icon"><i class="fas fa-angle-right"></i></span></a>
