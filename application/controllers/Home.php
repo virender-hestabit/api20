@@ -7,6 +7,7 @@ class Home extends MY_Controller {
 	    parent::__construct();
 	    //model load
 	}
+	//home page
 	public function index()
 	{
 
